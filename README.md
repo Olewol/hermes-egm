@@ -6,7 +6,7 @@ working from plans that no longer apply, and makes them keep plan status up to d
 It is a slimmed-down adaptation of Google's
 [Elephant-Goldfish Model](https://github.com/google/elephant-goldfish-model) (EGM): the main agent
 (the elephant) holds the context, and reviews are done by fresh-context subagents (goldfish) that
-have not seen the conversation. Upstream EGM is built for Claude Code and similar harnesses, with
+have not seen the conversation. Upstream EGM ships as a [Claude Code plugin](https://github.com/google/elephant-goldfish-model/blob/main/docs/claude.md) (and for similar harnesses), with
 eight skills and human approval gates. This version is one skill, autonomous by default, and uses
 Hermes' own tools.
 
@@ -95,6 +95,7 @@ index shows only names.
 | --- | --- | --- |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | The host: skills, `delegate_task`, `clarify`, kanban, profiles |
 | [Elephant-Goldfish Model](https://github.com/google/elephant-goldfish-model) | Google | The method, reviewer personas and standards this skill is adapted from |
+| [EGM plugin for Claude Code](https://github.com/google/elephant-goldfish-model/blob/main/docs/claude.md) (`egm` v0.1.1, [egm.dev](https://egm.dev)) | Google | The original Claude Code plugin this Hermes version was ported from: its eight skills (`egm-draft`, `egm-review`, `egm-drift-report` and others) and reviewer agents were condensed into this one skill |
 | [Crew](https://github.com/macd2/Crew) | macd2 | Optional Hermes plugin that turns `/crew` into verified kanban work; egm hands larger jobs to it |
 | [planning-with-files](https://github.com/OthmanAdi/planning-with-files) | OthmanAdi | Per-task planning files; egm leaves them alone |
 | [to-spec in mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec) | Matt Pocock | Spec writer; its output gets a `draft` status block |

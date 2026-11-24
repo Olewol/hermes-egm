@@ -3,6 +3,6 @@ Adapted from the Elephant-Goldfish Model (EGM), https://github.com/google/elepha
 Copyright Google LLC, licensed under the Apache License 2.0.
 
 The reviewer personas (skills/egm/personas/) and standards (skills/egm/standards/) are taken from
-EGM v0.1.1. The read-only clause in each persona was reworded for hosts where subagents inherit
+the EGM Claude Code plugin v0.1.1 (https://egm.dev, docs/claude.md in the repository above). The read-only clause in each persona was reworded for hosts where subagents inherit
 write tools, and one relative path was changed. The skill, the references and the status-tagging
 scheme are new and rewritten for Hermes Agent.
