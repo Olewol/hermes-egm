@@ -54,13 +54,13 @@ skill creates no question files or queues.
 
 | Part | How egm treats it |
 | --- | --- |
-| `delegate_task` | Runs every review and drift check (one task per reviewer, same `group`). Profiles without the delegation toolset do not self-review; they write "needs review". |
-| `clarify` | Only when the owner is active. |
-| Kanban | The card's contract comes before the skill. On a card the agent does not start review subagents unless the card asks, does not edit plans outside the card's target, and reports status changes in `kanban_complete`. |
-| Crew plugin (optional) | Larger jobs go to crew, which only the owner starts with `/crew`. In chat the agent hands over a ready `/crew …` line. Do not install egm on crew profiles: crew has its own control loop and verifier. |
+| `delegate_task` (Hermes core) | Runs every review and drift check (one task per reviewer, same `group`). Profiles without the delegation toolset do not self-review; they write "needs review". |
+| `clarify` (Hermes core) | Only when the owner is active. |
+| Kanban (Hermes core) | The card's contract comes before the skill. On a card the agent does not start review subagents unless the card asks, does not edit plans outside the card's target, and reports status changes in `kanban_complete`. |
+| [Crew plugin](https://github.com/macd2/Crew) (macd2, optional) | Larger jobs go to crew, which only the owner starts with `/crew`. In chat the agent hands over a ready `/crew …` line. Do not install egm on crew profiles: crew has its own control loop and verifier. |
 | Multi-profile teams | Profiles with an escalation path in their SOUL.md (e.g. a chief or coordinator profile) follow it instead of asking the owner. |
-| `planning-with-files` | Its `task_plan.md` / `progress.md` / `.planning/` are per-task working notes with their own status format. egm leaves them alone. |
-| `to-spec` and other spec writers | Specs they write into a project get a status block with `draft`. |
+| [`planning-with-files`](https://github.com/OthmanAdi/planning-with-files) (OthmanAdi) | Its `task_plan.md` / `progress.md` / `.planning/` are per-task working notes with their own status format. egm leaves them alone. |
+| [`to-spec`](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec) ([mattpocock/skills](https://github.com/mattpocock/skills)) and other spec writers | Specs they write into a project get a status block with `draft`. |
 | Memory providers, AGENTS.md, SOUL.md | Treated as history, not instructions. When they disagree with the code, drift lists it as a conflict for the owner instead of changing them. |
 
 ## Install
@@ -88,6 +88,16 @@ index shows only names.
 - It is guidance, not enforcement. There is no hook; a model can still ignore it.
 - Subagents inherit the parent's tools, so "read only" for reviewers is an instruction, not a
   sandbox.
+
+## Credits and related projects
+
+| Project | Owner | Role here |
+| --- | --- | --- |
+| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Nous Research | The host: skills, `delegate_task`, `clarify`, kanban, profiles |
+| [Elephant-Goldfish Model](https://github.com/google/elephant-goldfish-model) | Google | The method, reviewer personas and standards this skill is adapted from |
+| [Crew](https://github.com/macd2/Crew) | macd2 | Optional Hermes plugin that turns `/crew` into verified kanban work; egm hands larger jobs to it |
+| [planning-with-files](https://github.com/OthmanAdi/planning-with-files) | OthmanAdi | Per-task planning files; egm leaves them alone |
+| [to-spec in mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec) | Matt Pocock | Spec writer; its output gets a `draft` status block |
 
 ## License
 
